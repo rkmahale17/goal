@@ -37,7 +37,7 @@ app.get("/api", function (req, res) {
 // POST File
 app.post("/api/upload", upload.single("image"), function (req, res) {
   if (!req.file) {
-    console.log("No file is available!");
+    console.log("No file is available");
     return res.send({
       success: false,
     });
