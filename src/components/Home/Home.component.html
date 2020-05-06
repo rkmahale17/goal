@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="d-flex home_banner m-4">
+    <div class="mt-5">
+      <h4>
+        Have you ever feel like got inspired by your own struggle and
+        achievement
+      </h4>
+      <p class="home_header2">
+        Let’s create your own happy, struggle and Achievement memory in form of
+        images, videoAnd avatar form. And see this memory when You feel got down
+        in life
+      </p>
+    </div>
+
+    <div>
+      <img
+        src="../../assets/achievement.svg"
+        alt="achievement "
+        class="home_achiever"
+      />
+    </div>
+  </div>
+  <div class="home__feature p-4">
+    <div class="home__feature_box">
+      <div>
+        <h5 class="home_header1">
+          Access all of our features with Just a sign up for free
+        </h5>
+        <p class="home_header2">
+          This is an open source project to get Nostalgic about your past
+          achievements in life.
+        </p>
+        <div>
+          <button type="button" class="btn btn-outline-dark px-2">
+            Sign Up
+          </button>
+        </div>
+      </div>
+      <div>
+        <div *ngFor="let item of feature" class="home__feature_menu">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
