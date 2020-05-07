@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "node backend/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -28,11 +28,9 @@
     "@fortawesome/angular-fontawesome": "^0.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mongodb": "^3.5.7",
     "multer": "^1.4.2",
@@ -41,15 +39,25 @@
     "symbol-observable": "^1.2.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3",
-    "@types/node": "~8.9.4"
+    "@types/express": "^4.17.6",
+    "@types/node": "^13.13.5",
+    "body-parser": "^1.18.3",
+    "expres": "0.0.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.7.5",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.0-rc.7",
     "@angular/cli": "^9.1.4",
     "@angular/compiler-cli": "^9.1.4",
     "@angular/language-service": "~9.1.4",
+    "@types/express": "^4.17.6",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^8.10.60",
     "bootstrap": "^4.4.1",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
@@ -62,8 +70,8 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "popper.js": "^1.16.1",
     "protractor": "^6.0.0",
-    "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.8.3"
+    "ts-node": "^7.0.1",
+    "tslint": "^5.15.0",
+    "typescript": "^3.8.3"
   }
 }
