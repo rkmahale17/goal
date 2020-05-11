@@ -4,8 +4,8 @@ import { Loader } from "./Loader.model";
 
 @Component({
   selector: "app-loader",
-  templateUrl: "./loader.component.html",
-  styleUrls: ["./loader.component.scss"],
+  templateUrl: "./Loader.component.html",
+  styleUrls: ["./Loader.component.scss"],
 })
 export class LoaderComponent implements OnInit {
   @Input() public id: string = "global";
