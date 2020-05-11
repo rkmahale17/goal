@@ -1,0 +1,21 @@
+
+<app-loader [id]=" 'login' "></app-loader>
+
+<form class="login" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control"   formControlName="userName" aria-describedby="emailHelp">
+       <div *ngIf="f.userName.touched && f.userName.invalid" class="alert alert-danger">
+        <div *ngIf="f.userName.errors.required">Email Address Required</div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1" >Password</label>
+        <input type="password" class="form-control" formControlName="password">
+            <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                <div *ngIf="f.password.errors.required">password Required</div>
+            </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

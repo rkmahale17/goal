@@ -1,0 +1,61 @@
+<div class="container">
+  <app-loader [id]="'landing'"></app-loader>
+
+  <div *ngIf="showCreateAchievement">
+    <div class="landing__header">
+      <h1 class="mt-4">Be Your Own Hero</h1>
+    </div>
+    <div class="ml-3">
+      <p>Create your achievement and read it when you feel depress in life</p>
+    </div>
+
+    <div class="card landing_noAchievement">
+      <h3 class="landing_noAchievement_header">
+        You Dont have any Achievemnet to show.
+      </h3>
+    </div>
+    <div class="mt-5">
+      <button
+        type="button"
+        [routerLink]="['/AddAchievement']"
+        class="btn btn-outline-info px-2"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+  <div *ngIf="!showCreateAchievement" class="d-flex">
+    <div class="achievemet_card p-2 m-2" *ngFor="let item of achievemets">
+      <h5>{{ item.title }}</h5>
+      <div class="p-2">
+        <span class="font-weight-light achieve_label">
+          Category
+        </span>
+        <span class="pl-4">{{ item.category }}</span>
+      </div>
+      <div class="p-2">
+        <span class="font-weight-light achieve_label">
+          Lines
+        </span>
+        <span class="pl-4 achieve_lines">{{ item.lines }}</span>
+      </div>
+      <div class="p-2">
+        <span class="pl-4 achieve_lines">{{ item.description }}</span>
+      </div>
+
+
+        <button type="button" class="btn btn-outline-info px-2 m-auto">
+            Open
+        </button>
+    </div>
+  </div>
+  <div class="mt-5">
+    <button
+      type="button"
+      [routerLink]="['/AddAchievement']"
+      class="btn btn-outline-info px-2"
+    >
+      Create New Achievement
+    </button>
+  </div>
+</div>

@@ -23,5 +23,8 @@ export const UserSchema = new Schema({
     created_date: {
         type: Date,
         default: Date.now
+    },
+    achievement: {
+        type: Array
     }
 });

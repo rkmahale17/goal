@@ -1,0 +1,45 @@
+<app-loader [id]=" 'cAchieve' "></app-loader>
+
+
+<div class="m-auto card card-shadow cAchieve">
+ 
+<form  [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="exampleInputEmail1" class="custom_label">Name Of Achievement</label>
+        <input type="text" class="form-control custom_input" id="" aria-describedby="emailHelp"
+            placeholder="Type Title" formControlName="title">
+            <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
+                <div *ngIf="f.title.errors.required">Title is required.</div>
+                <div *ngIf="f.title.errors.minlength">Title should be 20 character.</div>
+            </div>
+    </div>
+<div class="form-group">
+    <label class="custom_label" for="exampleFormControlSelect1">Select Category</label>
+    <select class="form-control custom_input" id="exampleFormControlSelect1" formControlName="category">
+        <option>Schollarship</option>
+        <option>Job</option>
+        <option>Study</option>
+
+    </select>
+                <div *ngIf="f.category.touched && f.category.invalid" class="alert alert-danger">
+                    <div *ngIf="f.category.errors.required">Select Category.</div>
+                </div>
+</div>
+    <div class="form-group">
+        <label class="custom_label" for="exampleFormControlTextarea1">AddDescription </label>
+        <textarea class="form-control custom_input" id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+                    <div *ngIf="f.description.touched && f.description.invalid" class="alert alert-danger">
+                        <div *ngIf="f.description.errors.required">Description is required.</div>
+                        <div *ngIf="f.description.errors.minlength">Description should be 40 character.</div>
+                    </div>
+    </div>
+        <div class="form-group">
+            <label class="custom_label" for="exampleInputEmail1">Catchy Lines</label>
+            <input type="text" class="form-control custom_input" id="" aria-describedby="emailHelp" placeholder="Type lines" formControlName="lines">
+                    <div *ngIf="f.lines.touched && f.lines.invalid" class="alert alert-danger">
+                        <div *ngIf="f.lines.errors.required">This is required</div>
+                    </div>
+        </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+</form>
+</div>

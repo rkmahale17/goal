@@ -1,7 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 .toolbar {
 }
-
+$theme-color : #37afe5;
+.custom_label{
+    font-size: 0.6em;
+    color: $theme-color;
+}
+.custom_input{
+font-size: 1em;
+    color: #37afe5;
+    border-color: #03A9F4;
+}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .toolbar .desktop {

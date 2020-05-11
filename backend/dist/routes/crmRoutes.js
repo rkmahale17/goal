@@ -31,6 +31,14 @@ class Routes {
             .get(this.MainController.getUserWithID)
             .put(this.MainController.updateUser)
             .delete(this.MainController.deleteUser);
+        // add achievements
+        app
+            .route("/api/user/updateAchievement/:userId")
+            .put(this.MainController.addAchievement);
+        //login
+        app
+            .route("/api/login/:userName/:password")
+            .get(this.MainController.login);
     }
 }
 exports.Routes = Routes;

@@ -1,0 +1,48 @@
+ul,
+li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.menu {
+  color: gray;
+  font-size: 0.8em;
+}
+.menuMobile {
+  color: black;
+  font-size: 1.2em;
+  border-bottom: 2px solid white;
+  margin: 10px 0px;
+}
+
+.menu:hover {
+  color: black !important;
+}
+
+.toolbar__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+}
+
+.toolbar .mobile {
+  width: 280px;
+  display: none;
+  position: absolute;
+  background: gray;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  padding: 1em;
+  z-index: 2;
+}
