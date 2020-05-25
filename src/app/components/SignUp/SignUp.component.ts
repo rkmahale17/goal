@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoaderService } from '../Loader/Loader.service';
-import { ApiService } from '../ApiService/Api.service';
+import { LoaderService } from '../Loader/loader.service';
 import { Router } from "@angular/router";
+import { ApiService, AuthService } from 'src/app/services';
+
 
 @Component({
   selector: "app-sign-up",
@@ -13,7 +14,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private loaderService: LoaderService,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   get f() {
@@ -21,12 +23,10 @@ export class SignUpComponent implements OnInit {
   }
 
   form = new FormGroup({
-    firstName: new FormControl("", [Validators.required]),
-    lastName: new FormControl("", [Validators.required]),
+    name: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required]),
-    compony: new FormControl("", [Validators.required]),
-    phone: new FormControl("", [Validators.required]),
+    mobile: new FormControl("", [Validators.required, Validators.minLength(10)])
   });
 
   ngOnInit() {
@@ -38,17 +38,24 @@ export class SignUpComponent implements OnInit {
 
   submit() {
     // call service addAchievement
-    this.form.value.achievement = [];
-    this.form.value.created_date = Date.now();
+    debugger;
+    this.form.value.goals = [];
+    let formShaloow = { ...this.form.value };
+    delete this.form.value.email;
+    this.form.value.username = formShaloow.email;
     this.loaderService.showLoader("signUp");
-    this.apiService.createUser(this.form.value).subscribe((response) => {
-      if (response._id) {
-        localStorage.setItem("userId", response._id);
-        this.router.navigateByUrl("/Home");
-      } else {
-        alert("Eror in creating user");
-      }
-      this.loaderService.hideLoader("signUp");
-    });
+    this.authService.register(this.form.value);
+    // this.apiService.registerUser(this.form.value).subscribe((result) => {
+    //   localStorage.setItem('jwt_token', result.token);
+    //   this.loaderService.hideLoader("signUp");
+    //   this.router.navigateByUrl["/Home"]
+    //   // if (response._id) {
+    //   //   localStorage.setItem("userId", response._id);
+    //   //   this.router.navigateByUrl("/Home");
+    //   // } else {
+    //   //   alert("Eror in creating user");
+    //   // }
+    //   // this.loaderService.hideLoader("signUp");
+    // });
   }
 }

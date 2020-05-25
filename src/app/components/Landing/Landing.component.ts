@@ -1,41 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { LoaderService } from "../Loader/Loader.service";
-import { ApiService } from '../ApiService/Api.service';
+import { Component } from '@angular/core';
+import { LoaderService } from '../Loader/loader.service'
+import { ApiService } from '../../services';
+
 import { Router } from '@angular/router';
-import { userResponse } from '../CommonServices/Common.Interface';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IUser } from 'backend/lib/models/user';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
-  selector: "app-landing",
-  templateUrl: "./Landing.component.html",
-  styleUrls: ["./Landing.component.scss"],
+  selector: 'app-landing',
+  templateUrl: 'landing.component.html',
+  styleUrls: ['landing.component.scss'],
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
+  tutorials: Observable<[IUser]>;
 
-  public showCreateAchievement = false;
-  public achievemets = [];
+  feature = ['Thought Reminder', 'Share Pamyat', 'Daily Log', 'Categorization'];
   constructor(
     private loaderService: LoaderService,
     private apiService: ApiService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private store: Store<AppState>
+  ) {
 
+  }
   ngOnInit() {
-    this.loaderService.showLoader("landing");
-    setTimeout(() => {
-      this.loaderService.hideLoader("landing");
-    }, 1000);
 
-    const userId = localStorage.getItem("userId");
-    if (userId !== "undefined") {
-      this.apiService
-        .getUserInfo(userId)
-        .subscribe((response: userResponse) => {
-          if (userId === response._id) {
-            this.showCreateAchievement = !response.achievement.length ? true : false;
-            this.achievemets = response.achievement;
-            this.achievemets.push(response.achievement[0]);
-          }
-        });
-    }
+
   }
 }

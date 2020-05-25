@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { LoaderService } from "./Loader.service";
-import { Loader } from "./Loader.model";
+import { LoaderService } from "./loader.service";
+import { Loader } from "./loader.model";
 
 @Component({
   selector: "app-loader",

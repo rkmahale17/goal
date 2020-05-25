@@ -1,27 +1,56 @@
-.landing__header{
-    margin-top:10%;
-    margin-left:1rem;
+@import "../../../styles.scss";
+
+.home {
+  margin-top: 10% !important;
 }
-.landing_noAchievement_header{
-color: red;
-    font-size: 1.3rem;
-    padding: 10px;
+.home_header2 {
+  color: #676363;
+  margin-top: 3em;
+  font-size: 0.8em;
+  width: 80%;
+}
+.home__feature {
+  margin: 15% 2em;
+
+  background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+}
+.home__feature_menu {
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  margin: 10px;
+  width: 300px;
+  padding-left: 25px;
 }
 
-   .landing_noAchievement{ max-width: 500px;
-    margin: auto;
-    margin-top: 57px;
+.home_header1 {
+  color: white;
+  width: 80%;
+  font-size: 1em;
+  font-weight: 500;
+}
+.home__feature_box {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 4%;
+}
+
+
+.feature {
+ 
+   li{
+     list-style:none ;
+     padding: 10px;
+   }
+   li::before{
+    color: $secoundry;
+    content: "•";
+    display: inline-block;
+    font-size: 1.4em;
+    top: 0em;
+    font-weight: 600;
+    width: 15px;
    }
 
-   .achievemet_card {max-width: 300px;
-    background: #2b302b;
-    color: #e7e6e4;
-     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-   }
-
-   .achieve_label{
-       color :gray;
-   }
-   .achieve_lines{
-       
-   }
+}

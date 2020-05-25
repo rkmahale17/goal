@@ -1,3 +1,14 @@
-<div *ngIf="show" class="preloader" [ngClass]="{global: id === 'global', secondary: id !== 'global'}">
-    <div class="loader"></div>
+<div *ngIf="show" class=" otherLoader" [ngClass]="{global: id === 'global', secondary: id !== 'global'}">
+<div class="loader">
+    <svg>
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 5 -2"
+                    result="gooey" />
+                <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+</div>
 </div>

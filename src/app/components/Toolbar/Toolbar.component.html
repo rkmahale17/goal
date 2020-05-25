@@ -1,68 +1,37 @@
 <div class="container toolbar">
   <div class="d-flex justify-content-between m-4">
     <div>
-      <a href="/" class="logo">Pamyat</a>
+      <a href="/Home" class="tc-p heading-3 f-wm letter-space-3">GOAL</a>
     </div>
     <div class="m-menu-icon">
-      <button
-        type="button"
-        (click)="showMobileNavBar = !showMobileNavBar"
-        class="btn btn-outline-dark px-2"
-      >
+      <button type="button" (click)="showMobileNavBar = !showMobileNavBar" class="btn btn-outline-dark px-2">
         <fa-icon [icon]="menu_icon"></fa-icon>
       </button>
     </div>
     <div class="d-flex desktop">
       <ul>
         <li class="px-3">
-          <a href="/" class="menu">Support Us</a>
+          <a href="/Home" class="heading-4 tc-gl f-wr">SUPPORT US</a>
         </li>
         <li class="px-3">
-          <a href="/" class="menu">Contact Us</a>
+          <a href="/Home" class="heading-4 tc-gl f-wr">CONTACT US</a>
         </li>
         <li class="px-3">
-          <a href="/" class="menu">About Us</a>
+          <a href="/Home" class="heading-4 tc-gl f-wr">ABOUT US</a>
         </li>
         <li class="px-2">
-        
-                  <button *ngIf="isLogin()" [routerLink]="['/Login']" type="button" class="btn btn-outline-dark px-2">
-                    Login
-                  </button>
-                  <button type="button" *ngIf="!isLogin()" [routerLink]="['/Home']" class="btn btn-outline-dark px-2" (click)="logout()">
-                    Logout
-                  </button>
+
+          <button *ngIf="isLogin()" [routerLink]="['/Login']" type="button" class="btn-mr b-p  heading-4">
+            LOGIN
+          </button>
+          <button type="button" *ngIf="!isLogin()" [routerLink]="['/Home']"
+            class="btn-out-mr b2 bc-s tc-s heading-4 f-wm" (click)="logout()">
+            LOG OUT
+          </button>
         </li>
 
       </ul>
     </div>
-    <div [ngClass]="{ 'd-block': showMobileNavBar }" class="mobile card card-sahdow">
-      <div class="px-3 my-3">
-        <a href="/" class="menuMobile">Support Us</a>
-      </div>
-      <div class="px-3 my-3">
-        <a href="/" class="menuMobile">Contact Us</a>
-      </div>
-      <div class="px-3 my-3">
-        <a href="/" class="menuMobile">About Us</a>
-      </div>
-      <div class="pl-4 py-2 my-3">
-  <button *ngIf="isLogin()" [routerLink]="['/Login']" type="button" class="btn btn-outline-dark px-2">
-    Login
-  </button>
-  <button type="button" *ngIf="!isLogin()" [routerLink]="['/Home']" class="btn btn-outline-dark px-2" (click)="logout()">
-    logout
-  </button>
-        
-      </div>
-      <div class="pl-4 py-2 my-3" class="toolbar__close">
-        <button
-          type="button"
-          class="btn btn-outline-dark px-2 mt-5"
-          (click)="showMobileNavBar = !showMobileNavBar"
-        >
-          <fa-icon [icon]="close_icon"></fa-icon>
-        </button>
-      </div>
-    </div>
   </div>
 </div>
+<nav-bar [showMobileNavBar]="showMobileNavBar" [menu]="menu" (closeNavBar)="showMobileNavBar = false"></nav-bar>

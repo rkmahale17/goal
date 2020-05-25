@@ -1,0 +1,33 @@
+.navbar__close {
+  position: absolute;
+  left: 220px;
+  top: 45%;
+  padding: 10px;
+  .close_icon {
+    margin: 13px 10px 0px -2px;
+  }
+}
+
+.navbar {
+  width: 280px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  padding: 1em;
+  z-index: 2;
+}
+.nav_menu {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  width: 210px;
+  margin: 25px 2px;
+  color: black;
+  cursor: pointer;
+}
+
+.loginButons {
+  position: absolute;
+  bottom: 20px;
+}

@@ -1,8 +1,19 @@
+
+
 .login{
+padding: 20px;
+    width: 90%;
+    max-width: 600px;
+}
+
+.loginForm {
+    width: 100%;
     max-width: 400px;
     margin: auto;
-    background: #03A9F4;
-    padding: 2em;
-    border-radius: 12px;
-    margin-top: 10%;
+}
+
+.inputErrorBox{
+       width: 100%;
+    max-width: 350px;
+
 }

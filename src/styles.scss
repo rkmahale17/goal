@@ -1,10 +1,379 @@
 /* You can add global styles to this file, and also import other style files */
-.toolbar {
+
+//variables
+
+  $primary : #1639F7;
+  $primary-light: #7084F2;
+  $secoundry:#FD9300;
+
+$secoundry-light: #EBB468;
+$black: #050505;
+$gray: #383333;
+$gray-light: #7E7070;
+$light: #FAFAFA;
+$white: white;
+$text-40: 40px;
+$text-35: 35px;
+$text-25: 25px;
+$text-30: 30px;
+
+$text-20: 20px;
+$text-15: 15px;
+$text-18: 18px;
+$text-14: 14px;
+$text-18: 18px;
+$text-12: 12px;
+$text-10: 10px;
+$font-wb: 900;
+$font-wm: 600;
+$font-wr: 500;
+$font-wl: 300;
+$d-shadow:  0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0,0,0,.12);
+$d-shadow-h :  1px 3px 3px rgba(0, 0, 0, 0.25), 0px 3px 2px rgba(0, 0, 0, 0.22);
+$btn-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0,0,0,.12);
+$btn-shadow-h : 1px 3px 5px rgba(0, 0, 0, 0.25), 0px 4px 10px rgba(0, 0, 0, 0.22);
+
+//responsive img 
+.goal-img{
+    width: 100%;
+  height: auto;
 }
+//a
+a:hover{
+  text-decoration: none;
+}
+ 
+//Common Classes
+.b-p {
+    background: $primary;
+}
+
+.b-pl {
+    background: $primary-light;
+}
+
+.b-s {
+    background: $secoundry;
+}
+.b-sl {
+    background: $secoundry-light
+}
+
+.b-g{
+    background: $gray;
+}
+.b-gl{
+    background: $gray-light;
+}
+.b-b{
+    background: $black;
+}
+.b-l{
+  
+  background:$light}
+
+.b-navbar{
+  background: #00168D;
+}
+
+
+//text-color
+.tc-p {
+    color: $primary;
+}
+
+.tc-pl {
+    color: $primary-light;
+}
+
+.tc-s {
+    color: $secoundry;
+}
+.tc-sl {
+    color: $secoundry-light
+}
+
+.tc-g{
+    color: $gray;
+}
+.tc-gl{
+    color: $gray-light;
+}
+.tc-b{
+    color: $black;
+}
+
+
+//border 
+
+.b-0{
+  border:none;
+}
+.b1{
+   border-width: 1px;
+   border-style: solid;
+}
+.b2{
+   border-width: 2px;
+      border-style: solid;
+}
+.b3{
+   border-width: 3px;
+      border-style: solid;
+}
+.b4{
+   border-width: 4px;
+      border-style: solid;
+}
+.b5{
+   border-width: 5px;
+      border-style: solid;
+}
+
+.bc-p {
+    border-color: $primary;
+}
+
+.bc-pl {
+     border-color: $primary-light;
+}
+
+.bc-s {
+     border-color: $secoundry;
+}
+.bc-sl {
+     border-color: $secoundry-light
+}
+
+.bc-g{
+     border-color: $gray;
+}
+.bc-gl{
+     border-color: $gray-light;
+}
+.bc-b{
+     border-color: $black;
+}
+
+
+//form 
+
+.g-form{
+  label{
+    margin:0px;
+    padding: 0px;
+    display: block;
+  }
+  input{
+ padding: 4px 8px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+  }
+    input:hover , input:active , input:focus{
+    box-shadow: $d-shadow;
+  }
+}
+
+//a
+
+a{
+  text-decoration: none;
+}
+
+
+.box{
+    width:100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: $d-shadow;
+}
+
+.t-40{
+    font-size: $text-40;
+}
+.t-35{
+    font-size: $text-35;
+}
+.t-30{
+    font-size: $text-30;
+}
+.t-25{
+    font-size: $text-25;
+}
+.t-20{
+    font-size: $text-20;
+}
+.t-15{
+    font-size: $text-15;
+}
+.t-10{
+    font-size: $text-10;
+}
+.t-18{
+    font-size: $text-18;
+}
+.t-14{
+    font-size: $text-14;
+}
+.t-12{
+    font-size: $text-12;
+}
+
+.f-wb{
+    font-weight: $font-wb;
+}
+
+
+
+
+.f-wm{
+    font-weight: $font-wm;
+}
+
+.f-wr{
+    font-weight: $font-wr;
+}
+
+.f-wl{
+    font-weight: $font-wl;
+}
+
+//Text heading 
+
+.heading-1{
+ font-size: $text-30;
+}
+.heading-2{
+ font-size: $text-25;
+}
+.heading-3{
+ font-size: $text-18;
+}
+.heading-4{
+ font-size: $text-14;
+}
+.heading-5{
+ font-size: $text-12;
+}
+.heading-6{
+ font-size: $text-10;
+}
+
+//Buttons
+.btn-n{
+border-radius: 2px;
+}
+.btn-r{
+  width: 50px;
+  height: 50px;
+border-radius: 50%;
+ }
+ .btn-sr{
+border-radius: 20px;
+ }
+
+.btn-mr , .btn-out-mr{
+border-radius: 7px;
+}
+.btn-out-mr{
+  background: transparent;
+  padding:6px 20px;
+}
+
+.btn-n, .btn-r, .btn-mr, .btn-sr{
+border: none;
+color: white;
+padding:6px 20px;
+box-shadow: $btn-shadow;
+cursor: pointer;
+
+}
+
+.btn-n:hover , .btn-r:hover,  .btn-sr:hover , .btn-mr:hover, .btn-out-mr:hover{
+box-shadow: $btn-shadow-h;
+   transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: box-shadow;
+    transition-duration: 280ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0s;
+    cursor: pointer
+
+}
+
+.div-shadow {
+  box-shadow: $d-shadow;
+}
+.div-box-shadow:hover {
+  box-shadow: $d-shadow-h;
+}
+.btn-shadow {
+  box-shadow: $btn-shadow;
+}
+.btn-shadow-h{
+  box-shadow: $d-shadow;
+}
+
+.letter-space-1{
+  letter-spacing: 1px;
+}
+
+
+.letter-space-2{
+  letter-spacing: 2px;
+}
+
+.letter-space-3{
+  letter-spacing: 3px;
+}
+
+.toolbar {
+
+}
+
 $theme-color : #37afe5;
 .custom_label{
     font-size: 0.6em;
     color: $theme-color;
+}
+.custome-btn-1 {
+  position: relative;
+  overflow: hidden;
+background-color: #37afe5;
+    padding: 4px 1px;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100%;
+    max-width: 120px;
+
+    color: white;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+
+}
+.min-w-300{
+  min-width: 300px;
+}
+
+   .custome-btn-1:hover::before { width: 200px;
+    height: 200px;
+    top: -78px;
+    left: 0;
+    border-radius: 0;
+  opacity:1;
+   }
+.custome-btn-1::before{
+
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    background: #07fb113d;
+    top: 22px;
+    left: 100px;
+    border-radius: 50%;
+    transition: all 0.5s ease-out;
+	opacity:0;
 }
 .custom_input{
 font-size: 1em;
@@ -27,7 +396,7 @@ font-size: 1em;
   .home__feature_box {
     display: block !important;
   }
-  .home_banner {
+  .dSmBlock {
     display: block !important;
   }
   .home__feature_menu {
@@ -44,7 +413,7 @@ font-size: 1em;
   .home__feature_box {
     display: block !important;
   }
-  .home_banner {
+  .dSmBlock {
     display: block !important;
   }
   .home_header2 {

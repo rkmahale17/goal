@@ -1,39 +1,41 @@
-import { Component } from "@angular/core";
-import { LoaderService } from "../Loader/Loader.service"
-import { ApiService } from '../ApiService/Api.service';
-import { userResponse } from '../CommonServices/Common.Interface';
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { LoaderService } from '../Loader/loader.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services';
+import { IUser } from 'src/app/models/users.model';
 
 @Component({
-  selector: "Home",
-  templateUrl: "Home.component.html",
-  styleUrls: ["Home.component.scss"],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  feature = ["Thought Reminder", "Share Pamyat", "Daily Log", "Categorization"];
-
+export class HomeComponent implements OnInit {
+  userInfo: IUser;
+  public showCreateAchievement = true;
+  public achievemets = [];
+  public showGoals = false;
   constructor(
     private loaderService: LoaderService,
-    private apiService: ApiService,
-    private router: Router
-  ) {}
-  ngOnInit() {
-    //checking user is present or not
-    const userId = localStorage.getItem("userId");
-    if (userId !== "undefined") {
-      this.apiService
-        .getUserInfo(userId)
-        .subscribe((repsonse: userResponse) => {
-          if (userId === repsonse._id) {
-            this.router.navigateByUrl("/Home");
-          }
-        });
-    } else {
-      alert("Plz Sign In");
-    }
-  }
+    private router: Router,
+    private authService: AuthService,
 
-  hideLoader() {
-    this.loaderService.hideLoader("home");
+  ) {}
+
+  ngOnInit() {
+    this.loaderService.showLoader('landing');
+    
+    // this.authService.login();
+    setTimeout(() => {
+      this.loaderService.hideLoader('landing');
+      this.userInfo = this.authService.getUserInfo();
+      if (this.userInfo.goals.length > 0) {
+        this.showGoals = true;
+      }
+      console.log(this.userInfo);
+      // this.showCreateAchievement = !this.userInfo.achievement.length ? true : false;
+
+    }, 2000);
+
+
   }
 }

@@ -1,0 +1,32 @@
+<div *ngIf="showMobileNavBar" class=" b-navbar navbar d-block d-b">
+
+
+    <div class="nav_menu tc-b f-wm d-flex  justify-content-between" (click)="close()" [routerLink]="[item.url]"
+        *ngFor="let item of menu">
+        <div>
+            {{item.name}}
+
+        </div>
+        <div>
+            <fa-icon [icon]="arrowForward" class="close_icon"></fa-icon>
+
+        </div>
+
+    </div>
+
+    <div class="pl-4 py-2 my-3 loginButons">
+        <button *ngIf="isLogin()" [routerLink]="['/Login']" type="button"
+            class="btn-mr m-4 b-s t-15 f-wm letter-space-1 ml-2">
+            LOGIN
+        </button>
+        <button type="button" *ngIf="!isLogin()" [routerLink]="['/Home']"
+            class="btn-mr m-4 b-s t-15 f-wm letter-space-1 ml-2" (click)="logout()">
+            LOGOUT
+        </button>
+    </div>
+    <div class="pl-4 py-2 my-3" class="navbar__close">
+        <button type="button" class="btn-r m-4 b-s" (click)="close()">
+            <fa-icon [icon]="close_icon" class="close_icon"></fa-icon>
+        </button>
+    </div>
+</div>

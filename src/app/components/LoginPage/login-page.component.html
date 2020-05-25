@@ -1,21 +1,41 @@
+<app-loader ></app-loader>
+<app-header label="LOGIN"></app-header>
 
-<app-loader [id]=" 'login' "></app-loader>
 
-<form class="login" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control"   formControlName="userName" aria-describedby="emailHelp">
-       <div *ngIf="f.userName.touched && f.userName.invalid" class="alert alert-danger">
-        <div *ngIf="f.userName.errors.required">Email Address Required</div>
-    </div>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1" >Password</label>
-        <input type="password" class="form-control" formControlName="password">
-            <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
-                <div *ngIf="f.password.errors.required">password Required</div>
+<div class="b3 bc-p div-box-shadow m-auto login b-l">
+    <form  [formGroup]="form" (ngSubmit)="submit()">
+
+
+        <div class="m-4">
+            <div class="g-form loginForm">
+                <label class="tc-p t-10">Email address</label>
+                <input type="email" class="b2 bc-p tc-b t-15" autocomplete="true" formControlName="username"
+                    aria-describedby="emailHelp"
+                    [ngClass]=" {'bc-s': (f.username.touched && f.username.invalid), 'b1': (f.username.touched && f.username.invalid)}">
+                <div *ngIf="f.username.touched && f.username.invalid" class="b1 bc-s tc-s p-2 inputErrorBox">
+                    <div *ngIf="f.username.errors.required" class="tc-s heading-5 ">Email is required</div>
+                    <div *ngIf="f.username.errors.email" class="tc-s heading-5 ">Email is invalide</div>
+
+
+                </div>
             </div>
-    </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <div class="m-4">
+            <div class="g-form loginForm ">
+                <label for="" class="tc-p t-10">Password</label>
+                <input type="password" class="b2 bc-p tc-b t-15" placeholder="Enter Password" formControlName="password"
+                    [ngClass]=" {'bc-s': (f.password.touched && f.password.invalid), 'b1': (f.password.touched && f.password.invalid)}" />
+                <div *ngIf="f.password.touched && f.password.invalid" class="b1 bc-s tc-s p-2 inputErrorBox">
+                    <div *ngIf="f.password.errors.required" class="tc-s  heading-5 ">Password is required</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-auto text-center">
+            <button type="submit" class="btn-sr m-4 b-p t-15 f-wm letter-space-1" [disabled]="!form.valid">
+                Login
+            </button>
+        </div>
+    </form>
+</div>

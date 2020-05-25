@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { Loader } from "./Loader.model";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Loader } from './loader.model';
 
 @Injectable()
 export class LoaderService {
-  public  loader:BehaviorSubject<Loader> = new BehaviorSubject<Loader>({ id: "global", status: false });
+  public  loader: BehaviorSubject<Loader> = new BehaviorSubject<Loader>({ id: 'global', status: false });
 
   loaderStatus$ = this.loader.asObservable();
 
@@ -14,7 +14,7 @@ export class LoaderService {
    * Show loader
    * @param {string} id
    */
-  public showLoader(id: string = "global"): void {
+  public showLoader(id: string = 'global'): void {
     this.loader.next({ id, status: true });
   }
 
@@ -22,7 +22,7 @@ export class LoaderService {
    * Hide loader
    * @param {string} id
    */
-  public hideLoader(id: string = "global"): void {
+  public hideLoader(id: string = 'global'): void {
     this.loader.next({ id, status: false });
   }
 }
