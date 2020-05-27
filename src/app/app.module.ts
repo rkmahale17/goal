@@ -29,6 +29,7 @@ import { LeftHeaderComponent } from './components/LeftHeader/leftHeader.componen
 import { NavbarComponent } from './components/Navbar/navbar.component';
 import { reducer } from './store/reducers/user.reducer';
 import { ApiService, AuthService, AuthGuardService } from './services';
+import { GoalDetailsComponent } from './components/goalDetails/goalDetails.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ApiService, AuthService, AuthGuardService } from './services';
     DemoComponent,
     LeftHeaderComponent,
     NavbarComponent,
-    CreateGoalComponent
+    CreateGoalComponent,
+    GoalDetailsComponent
   ],
   imports: [
     BrowserModule,

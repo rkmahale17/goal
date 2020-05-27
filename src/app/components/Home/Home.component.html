@@ -1,25 +1,59 @@
 <div class="container">
   <app-loader [id]="'landing'"></app-loader>
+
   <div class="ml-3" *ngIf="showGoals">
-    <pre>Displaying goals</pre>
-  </div>
-  <div class="div-box-shadow b2 bc-s goals__emptyBox " *ngIf="!showGoals">
-    <div class="d-flex dSmBlock justify-content-between ">
-     <div class="p-5 min-w-300">
-      <div class="heading-3 f-wm text-center">
-        “Without goal in a life is like with
-        Destination plane is flying”
+    <app-header [label]="'My Goals' "></app-header>
+    <div class="d-flex justify-content-center">
+
+      <div *ngFor="let item of userInfo.goals" class="div-shadow  b1 bc-p p-3 br-10 cusor-pointer" [routerLink]="['/GoalDetails',item._id]">
+        <section class="heading-3 tc-p t f-wr px-1">
+          {{item.title}}
+        </section>
+        <section class="heading-4   f-l pt-3 px-2">
+          {{item.description}}
+        </section>
+        <section class="d-flex px-2 pt-2">
+          <div class="tc-gl heading-4">
+            Start Date
+          </div>
+          <div class="pl-2 heading-4 f-wm">
+            {{item.startDate | date: 'dd/MM/yyyy'}}
+          </div>
+        </section>
+        <section class="d-flex px-2 pt-1">
+          <div class="heading-4">
+            End Date
+          </div>
+          <div class="pl-2 heading-4 f-wm">
+            {{item.endDate | date: 'dd/MM/yyyy'}}
+          </div>
+        </section>
+        <div class="float-right pt-2 pr-2">
+          <button class="btn-sr  b-p heading-4">
+            DETAILS
+          </button>
+        </div>
       </div>
 
     </div>
-    <div>
-      <img src="assets/noGoal.svg" alt="" class="goal-img home_ImgaeEmpty" />
+  </div>
+  <div class="div-box-shadow b2 bc-s goals__emptyBox " *ngIf="!showGoals">
+    <div class="d-flex dSmBlock justify-content-between ">
+      <div class="p-5 min-w-300">
+        <div class="heading-3 f-wm text-center">
+          “Without goal in a life is like with
+          Destination plane is flying”
+        </div>
+
+      </div>
+      <div>
+        <img src="assets/noGoal.svg" alt="" class="goal-img home_ImgaeEmpty" />
+      </div>
     </div>
   </div>
-    </div>
-        <div class="text-center mt-4  ">
-          <button class="btn-sr m-4 b-p" [routerLink]="['/CreateGoal']">
-            CREATE GOAL
-          </button>
-        </div>
+  <div class="text-center mt-4  ">
+    <button class="btn-sr m-4 b-p" [routerLink]="['/CreateGoal']">
+      CREATE GOAL
+    </button>
+  </div>
 </div>

@@ -23,12 +23,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loaderService.showLoader('landing');
-    
     // this.authService.login();
     setTimeout(() => {
       this.loaderService.hideLoader('landing');
       this.userInfo = this.authService.getUserInfo();
-      if (this.userInfo.goals.length > 0) {
+      if (this.userInfo && this.userInfo.goals.length > 0) {
         this.showGoals = true;
       }
       console.log(this.userInfo);

@@ -8,6 +8,7 @@ import { LoginPageComponent } from './components/LoginPage/login-page.component'
 import { DemoComponent } from './components/ComponentDemo/demo.componet';
 import { AuthGuardService } from './services';
 import { CreateGoalComponent } from './components/CreateGoal/createGoal.component';
+import { GoalDetailsComponent } from './components/goalDetails/goalDetails.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'SignUp', component: SignUpComponent },
   { path: 'Login', component: LoginPageComponent },
   { path: 'LocalComponent', component: DemoComponent },
-  { path: 'CreateGoal', component: CreateGoalComponent}
+  { path: 'CreateGoal', component: CreateGoalComponent },
+  { path: 'GoalDetails/:goalId', component: GoalDetailsComponent, pathMatch: 'full'}
 
 ];
 

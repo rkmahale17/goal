@@ -18,9 +18,9 @@ import { AuthService } from '../../services';
 export class LoginPageComponent implements OnInit {
   userInfo: Observable<[IUser]>;
   constructor(private loaderService: LoaderService,
-    private apiService: ApiService,
-    private authService: AuthService,
-    private router: Router, private store: Store<AppState>
+              private apiService: ApiService,
+              private authService: AuthService,
+              private router: Router, private store: Store<AppState>
   ) {
     this.userInfo = store.select('user');
   }
@@ -28,8 +28,8 @@ export class LoginPageComponent implements OnInit {
     return this.form.controls;
   }
   form = new FormGroup({
-    username: new FormControl("", [Validators.required, Validators.email]),
-    password : new FormControl("", [Validators.required]),
+    username: new FormControl('', [Validators.required, Validators.email]),
+    password : new FormControl('', [Validators.required]),
   });
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class LoginPageComponent implements OnInit {
     this.authService.login(this.form.value, this.loaderService);
 
     // this.apiService.login(this.form.value).subscribe((response: any) => {
-      
+
     //   if (response._id) {
     //     localStorage.setItem("userId", response._id);
     //     this.router.navigateByUrl("/Home");

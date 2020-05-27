@@ -1,4 +1,3 @@
-import { FUNCTION_TYPE } from '@angular/compiler/src/output/output_ast';
 
 export const apiUrl = {
   createAchievement(userId) {
@@ -12,5 +11,11 @@ export const apiUrl = {
   },
   login() {
     return `/api/user/login`;
+  },
+  createGoal(userId) {
+    return `/api/goal/${userId}`;
+  },
+  getGoals(userId) { 
+    return `/api/goal/${userId}`;
   }
 };

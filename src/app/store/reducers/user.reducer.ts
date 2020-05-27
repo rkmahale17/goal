@@ -21,6 +21,11 @@ export function reducer(state: IUser | [{}] = [initialState], action: UserAction
             return state;
         case UserActions.Remove_User:
             state = action.payload;
+            break;
+        case UserActions.Set_Goals:
+            state[0].goals = action.payload;
+            break;
+
         default:
             return state;
     }

@@ -5,8 +5,8 @@ import { ApiService } from '../../services';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IUser } from 'backend/lib/models/user';
 import { AppState } from 'src/app/store/app.state';
+import { IUser } from 'src/app/models/users.model';
 
 @Component({
   selector: 'app-landing',

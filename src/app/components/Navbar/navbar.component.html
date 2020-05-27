@@ -15,7 +15,7 @@
     </div>
 
     <div class="pl-4 py-2 my-3 loginButons">
-        <button *ngIf="isLogin()" [routerLink]="['/Login']" type="button"
+        <button *ngIf="isLogin()" [routerLink]="['/Login']" (click)="close()" type="button"
             class="btn-mr m-4 b-s t-15 f-wm letter-space-1 ml-2">
             LOGIN
         </button>
@@ -26,7 +26,7 @@
     </div>
     <div class="pl-4 py-2 my-3" class="navbar__close">
         <button type="button" class="btn-r m-4 b-s" (click)="close()">
-            <fa-icon [icon]="close_icon" class="close_icon"></fa-icon>
+            <fa-icon [icon]="closeIcon" class="close_icon"></fa-icon>
         </button>
     </div>
 </div>

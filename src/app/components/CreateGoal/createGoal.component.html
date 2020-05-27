@@ -49,17 +49,20 @@
             </div>
         </div>
         <div class=" m-4 ">
-            <div class="d-flex goalForm justify-content-between">
-                <div>
-                    <div>
-                        <input type="checkbox" class="b2 bc-p tc-b t-15" placeholder="Select Date"
-                            formControlName="reminder" />
+            <div class="d-flex goalForm dSmBlock justify-content-between">
+                <div class="pt-2 mt-2">
+                    <div class="custom-control custom-switch">
+                       
+                         <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="reminder">
+                     
+                      
+                        <label class="custom-control-label heading-5 pt-1 tc-p"  for="customSwitch1">Reminder me every day</label>
+
+                     
                     </div>
-                    <div class="tc-p heading-4 mt-2">
-                        Reminder me every day
-                    </div>
+                
                 </div>
-                <div>
+                <div class="mt-2">
                     <button type="button" class="btn-sr m-2 b-s t-15 f-wm letter-space-1">
                         ADD PHASE
                         <fa-icon [icon]="addIcon" class="heading-4"> </fa-icon>
@@ -70,7 +73,7 @@
             </div>
         </div>
         <div class="m-auto text-center">
-            <button type="submit" class="btn-sr m-4 b-p t-15 f-wm letter-space-1" [disabled]="!form.valid">
+            <button type="submit" class="btn-sr m-4 b-p t-15 f-wm letter-space-1"  [disabled]="!form.valid">
                 CREATE GOAL
             </button>
         </div>

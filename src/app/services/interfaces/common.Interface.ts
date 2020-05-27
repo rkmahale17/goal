@@ -12,4 +12,5 @@ export interface userResponse {
 
 export interface IToken {
   token: string;
+  userId: string;
 }

@@ -8,10 +8,9 @@ export class GoalController {
     public async getGoals(req: Request, res: Response): Promise<void> {
         const data = await Goal.findOne({ userId: req.params.id });
         if (data !== null) {
-            res.json(data.goals);
+            res.json(data);
         } else {
             res.sendStatus(404);
-
         }
     }
 
@@ -24,7 +23,6 @@ export class GoalController {
             res.json(goal.goals[0]);
         }
     }
-
 
 
     public async createGoal(req: Request, res: Response): Promise<void> {

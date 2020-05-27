@@ -33,12 +33,25 @@ export class ApiService {
     return this.http.get(apiUrl.getuser(userId));
   }
 
+  // get all goals related to the person
+  public getGoals(userId): Observable<any> {
+    console.log(this.getToken());
+    return this.http.get(apiUrl.getGoals(userId), { headers : this.headers});
+  }
+
+
   public login(body: any) {
     return this.http.post(apiUrl.login(), body );
   }
 
+
+  public createGoal(userId, body: any) {
+    return this.http.post(apiUrl.createGoal(userId), body, {headers: this.headers});
+  }
+
   private handleError(error: Response | any) {
-    console.error("ApiService::handleError", error);
+    console.error('ApiService::handleError', error);
     return Observable.throw(error);
   }
+
 }

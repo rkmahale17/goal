@@ -19,7 +19,9 @@ export class CreateGoalComponent {
     addIcon = faPlus;
 
     constructor(
-        private loaderService: LoaderService
+        private loaderService: LoaderService,
+        private apiService: ApiService,
+        private authservice: AuthService
     ) { }
 
     get f() {
@@ -43,25 +45,9 @@ export class CreateGoalComponent {
     }
 
     submit() {
-        // call service addAchievement
-        debugger;
-        this.form.value.goals = [];
-       // let formShaloow = { ...this.form.value };
-        delete this.form.value.email;
-       // this.form.value.username = formShaloow.email;
         this.loaderService.showLoader('createGoal');
-       // this.authService.register(this.form.value);
-        // this.apiService.registerUser(this.form.value).subscribe((result) => {
-        //   localStorage.setItem('jwt_token', result.token);
-        //   this.loaderService.hideLoader("signUp");
-        //   this.router.navigateByUrl["/Home"]
-        //   // if (response._id) {
-        //   //   localStorage.setItem("userId", response._id);
-        //   //   this.router.navigateByUrl("/Home");
-        //   // } else {
-        //   //   alert("Eror in creating user");
-        //   // }
-        //   // this.loaderService.hideLoader("signUp");
-        // });
+        this.apiService.createGoal(this.authservice.getUserId(), this.form.value).subscribe((result) => {
+            console.log(result);
+        });
     }
 }

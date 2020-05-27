@@ -41,8 +41,6 @@ export class UserController {
       const token = jwt.sign({ username: req.body.username, scope: req.body.scope }, JWT_SECRET);
       res.status(200).send({ token });
     }
-
-
   }
 
   public authenticateUser(req: Request, res: Response, next: NextFunction) {
@@ -55,7 +53,7 @@ export class UserController {
           return res.status(200).send({ status: 'error', code: 'unauthorized' });
         } else {
           const token = jwt.sign({ username: user.username }, JWT_SECRET);
-          res.status(200).send({ token });
+          res.status(200).send({ token, userId: user._id });
         }
       })(req, res, next);
 

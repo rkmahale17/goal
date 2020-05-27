@@ -4,7 +4,9 @@ import { IUser } from '../../models/users.model'
 
 // Section 2
 export const Add_User = '[User] Add';
-export const Remove_User = '[User] Add'
+export const Remove_User = '[User] Remove';
+export const Set_Goals = '[User] setGoal';
+
 
 // Section 3
 export class AddUser implements Action {
@@ -20,7 +22,11 @@ export class RemoveUser implements Action {
     constructor(public payload: [{}]) { }
 }
 
+//set gaol
+export class SetGoals implements Action {
+    readonly type = Set_Goals
 
+    constructor(public payload: [IUser]) { }
+}
 
-// Section 4
-export type Actions = AddUser | RemoveUser
+export type Actions = AddUser | RemoveUser | SetGoals;

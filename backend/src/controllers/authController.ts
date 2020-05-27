@@ -6,7 +6,6 @@ import "../auth/passportHandler";
 export class AuthController {
 
   public authenticateJWT(req: Request, res: Response, next: NextFunction) {
-    console.log('autheticate jwt')
     passport.authenticate("jwt", function (err, user, info) {
       if (err) {
         console.log(err);
@@ -21,7 +20,6 @@ export class AuthController {
   }
 
   public authorizeJWT(req: Request, res: Response, next: NextFunction) {
-    console.log('authorise jwt')
 
     passport.authenticate("jwt", function (err, user, jwtToken) {
       if (err) {

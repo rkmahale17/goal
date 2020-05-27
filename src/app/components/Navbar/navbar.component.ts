@@ -16,8 +16,8 @@ import { AuthService } from 'src/app/services';
 })
 export class NavbarComponent {
     title = "Toolbar";
-    menu_icon = faBars;
-    close_icon = faWindowClose;
+    menuIcon = faBars;
+    closeIcon = faWindowClose;
     arrowForward  = faArrowCircleRight;
     @Input() menu = [];
     @Output() closeNavBar: EventEmitter<any> = new EventEmitter();
@@ -29,6 +29,7 @@ export class NavbarComponent {
     }
     logout() {
         this.authService.logout();
+        this.close();
         //    this.store.dispatch(new RemoveUser([{}]));
     }
 
