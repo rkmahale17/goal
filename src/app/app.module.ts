@@ -30,6 +30,8 @@ import { NavbarComponent } from './components/Navbar/navbar.component';
 import { reducer } from './store/reducers/user.reducer';
 import { ApiService, AuthService, AuthGuardService } from './services';
 import { GoalDetailsComponent } from './components/goalDetails/goalDetails.component';
+import { GoalHeaderComponent } from './components/goalDetails/goalHeader/goalHeader.component';
+import { CreatePhaseComponent } from './components/CreatePhase/createPhase.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { GoalDetailsComponent } from './components/goalDetails/goalDetails.compo
     LeftHeaderComponent,
     NavbarComponent,
     CreateGoalComponent,
-    GoalDetailsComponent
+    GoalDetailsComponent,
+    GoalHeaderComponent,
+    CreatePhaseComponent
   ],
   imports: [
     BrowserModule,

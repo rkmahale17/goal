@@ -3,9 +3,9 @@
 
   <div class="ml-3" *ngIf="showGoals">
     <app-header [label]="'My Goals' "></app-header>
-    <div class="d-flex justify-content-center">
+    <div class="home_goals">
 
-      <div *ngFor="let item of userInfo.goals" class="div-shadow  b1 bc-p p-3 br-10 cusor-pointer" [routerLink]="['/GoalDetails',item._id]">
+      <div *ngFor="let item of userInfo.goals" class="div-shadow  b1 bc-p p-3 br-10 cusor-pointer goal_card" [routerLink]="['/GoalDetails',item._id]">
         <section class="heading-3 tc-p t f-wr px-1">
           {{item.title}}
         </section>

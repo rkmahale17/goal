@@ -1,0 +1,23 @@
+.max__goalDetails{
+max-width: 800px;
+width: 80%;
+margin: auto;}
+
+.home_goals{
+
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+
+   .goal_card{
+     transition: transform 1s;
+      max-width: 300px;
+     &.hover{
+       transform: translateY(-10px);
+     }
+
+}
+
+}

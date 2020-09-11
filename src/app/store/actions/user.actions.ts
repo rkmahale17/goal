@@ -18,14 +18,12 @@ export class AddUser implements Action {
 export class RemoveUser implements Action {
     readonly type = Remove_User
 
-
     constructor(public payload: [{}]) { }
 }
 
 //set gaol
 export class SetGoals implements Action {
     readonly type = Set_Goals
-
     constructor(public payload: [IUser]) { }
 }
 

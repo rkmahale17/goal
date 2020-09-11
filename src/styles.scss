@@ -155,6 +155,29 @@ a:hover {
   border-color: $black;
 }
 
+.br-t {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+.br-b {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.br-l {
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.br-r {
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+}
+
 //form
 
 .g-form {
@@ -258,8 +281,8 @@ a {
   font-size: $text-10;
 }
 //
-.cusor-pointer{
-    cursor: pointer;
+.cusor-pointer {
+  cursor: pointer;
 }
 
 //Buttons

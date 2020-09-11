@@ -26,6 +26,7 @@ export class GoalController {
 
 
     public async createGoal(req: Request, res: Response): Promise<void> {
+        console.log(req.params, 'createGoal')
         const data = await Goal.findOneAndUpdate({ userId: req.params.id }, { $push: { goals: req.body } });
         if (data) {
             let USER_GOALS = await Goal.findOne({ userId: req.params.id });

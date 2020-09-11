@@ -7,11 +7,12 @@ import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'GOALS';
   constructor(private apiServices: ApiService, private authService: AuthService, private store: Store<AppState>) { }
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     if (this.authService.isAuthenitcated()) {
       this.apiServices.getGoals(this.authService.getUserId()).subscribe((result) => {

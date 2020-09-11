@@ -15,7 +15,16 @@ export const apiUrl = {
   createGoal(userId) {
     return `/api/goal/${userId}`;
   },
+  getSingleGoal(userId, goalId) {
+    return `/api/goal/${userId}/${goalId}`;
+  },
   getGoals(userId) { 
     return `/api/goal/${userId}`;
+  },
+  getPhase(userId, phaseId) { 
+    return `/api/phase/${userId}/${phaseId}`;
+  },
+  createPhase(userId, phaseId) {
+    return `/api/phase/${userId}/${phaseId}`;
   }
 };

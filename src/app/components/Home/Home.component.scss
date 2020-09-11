@@ -11,3 +11,23 @@
 .home_ImgaeEmpty{
 height:300px
 }
+
+.home_goals{
+
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+
+   .goal_card{
+     transition: transform 1s;
+
+     &.hover{
+       transform: translateY(-10px);
+     }
+
+}
+
+}
+

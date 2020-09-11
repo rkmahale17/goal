@@ -2,7 +2,8 @@
 
 import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { AuthService } from 'src/app/services';
+import { AuthService, ApiService } from 'src/app/services';
+import { LoaderService } from '../Loader/loader.service';
 
 @Component({
     selector: 'app-goalDetails',
@@ -13,24 +14,31 @@ export class GoalDetailsComponent {
 
     goalId: string;
     goalDetails: any;
+    phaseDetails: any;
 
-    constructor(private route: ActivatedRoute, private authService: AuthService) {
+    constructor(private route: ActivatedRoute, private authService: AuthService,private apiService: ApiService, private loaderService: LoaderService) {
 
     }
 
     ngOnInit() {
-        console.log('inside getails');
-        this.route.paramMap.subscribe( (params) => {
-            this.goalId = params.get('goalId');
-            const details = this.authService.getUserInfo();
-            if (details && details.goals && details.goals.length > 0) {
-                const goals = details.goals;
-                this.goalDetails = goals.filter((item) => {
-                return item._id == this.goalId
-                });
-                console.log(this.goalDetails);
-            }
-        });
-    }
+        this.loaderService.showLoader('goalDetails');
+        setTimeout(() => {
+            this.route.paramMap.subscribe((params) => {
+                this.goalId = params.get('goalId');
+                const details = this.authService.getUserInfo();
+                if (details && details.goals && details.goals.length > 0) {
+                    const goals = details.goals;
 
+                    const goal = goals.filter((item) => {
+                        return item._id == this.goalId
+                    });
+                    this.apiService.getPhase(this.authService.getUserId(), this.goalId).subscribe((result) => {
+                        this.phaseDetails = result;
+                    })
+                    this.goalDetails = goal[0];
+                    this.loaderService.hideLoader('goalDetails');
+                }
+            });
+        }, 2000);
+    }
 }
