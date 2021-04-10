@@ -21,8 +21,7 @@ const routes: Routes = [
   { path: 'CreateGoal', component: CreateGoalComponent },
   { path: 'GoalDetails/:goalId', component: GoalDetailsComponent, pathMatch: 'full' },
   { path: 'CreatePhase', component: CreatePhaseComponent },
-  { path: 'Demo', component: DemoComponent },
-
+  { path: 'Demo', component: DemoComponent }
 ];
 
 @NgModule({

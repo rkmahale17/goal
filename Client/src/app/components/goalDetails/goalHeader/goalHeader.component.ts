@@ -15,6 +15,7 @@ export class GoalHeaderComponent {
     @Input() label: string;
     @Input() goalTitle: string;
     @Output() edit = new EventEmitter();
+    @Output() delete = new EventEmitter();
     arrowIcon = faGreaterThan;
     editIcon = faEdit;
     constructor() {
@@ -22,5 +23,8 @@ export class GoalHeaderComponent {
 
     onEdit() {
         this.edit.emit(null);
+    }
+    onDelete() {
+        this.delete.emit(null);
     }
 }

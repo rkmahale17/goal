@@ -10,8 +10,13 @@
         {{goalTitle}}
     </div>
     <div class="ml-auto pt-3 ">
-        <button class=" btn-r m-1 b-s outline-none" (click)="onEdit()">
-            <i class="material-icons center-icon">edit</i>
-        </button>
-    </div>
+
+        <div class="dropdown">
+            <button class=" btn-r m-1 b-s outline-none" id="dropdownMenu2" (click)="onEdit()">
+                <i class="material-icons center-icon">edit</i>
+             </button>
+            <button class=" btn-r m-1 b-s outline-none" id="dropdownMenu2" (click)="onDelete()">
+                <i class="material-icons center-icon">delete</i>
+            </button>
+        </div>
 </div>

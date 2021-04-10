@@ -42,4 +42,8 @@ export class GoalDetailsComponent {
             });
         }, 2000);
     }
+
+    deleteGoal() {
+        this.apiService.deleteGoal(this.authService.getUserId(), this.goalId).subscribe();
+    }
 }

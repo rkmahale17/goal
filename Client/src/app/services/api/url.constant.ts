@@ -21,13 +21,16 @@ export const apiUrl = {
   getGoals(userId) { 
     return `/api/goal/${userId}`;
   },
-  getPhase(userId, phaseId) { 
+  getPhase(userId, phaseId) {
     return `/api/phase/${userId}/${phaseId}`;
   },
   createPhase(userId, phaseId) {
     return `/api/phase/${userId}/${phaseId}`;
   },
   updateGoal(userId, goalId) {
+    return `/api/goal/${userId}/${goalId}`;
+  },
+  deleteGoal(userId, goalId) {
     return `/api/goal/${userId}/${goalId}`;
   }
 };

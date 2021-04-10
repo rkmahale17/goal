@@ -87,6 +87,12 @@ export class ApiService {
     return this.http.put(apiUrl.updateGoal(userId, goalId), body);
   }
 
+  // delete calls
+
+  public deleteGoal(userId, goalId ): Observable<any> {
+    console.log('called delete');
+    return this.http.delete(apiUrl.deleteGoal(userId, goalId));
+  }
   // handling error here
 
   private handleError(error: Response | any) {

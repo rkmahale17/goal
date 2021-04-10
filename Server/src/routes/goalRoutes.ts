@@ -19,6 +19,6 @@ export class GoalRoutes {
         this.router.get('/:id/:goalId', this.authController.authenticateJWT, this.goalController.getGoaltWithId);
         this.router.post('/:id', this.authController.authenticateJWT, this.goalController.createGoal);
         this.router.put('/:id/:goalId', this.authController.authenticateJWT, this.goalController.updateGoal);
-        // this.router.delete("/:id", this.authController.authenticateJWT, this.productController.deleteProduct);
+        this.router.delete('/:id/:goalId', this.authController.authenticateJWT, this.goalController.deleteGoal);
     }
 }

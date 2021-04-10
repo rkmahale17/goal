@@ -27,12 +27,10 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.loaderService.hideLoader('landing');
       this.userInfo = this.authService.getUserInfo();
-      if (this.userInfo && this.userInfo.goals.length > 0) {
+      if (this.userInfo && this.userInfo.goals && this.userInfo.goals.length > 0) {
         this.showGoals = true;
       }
-      console.log(this.userInfo);
       // this.showCreateAchievement = !this.userInfo.achievement.length ? true : false;
-
     }, 2000);
 
 

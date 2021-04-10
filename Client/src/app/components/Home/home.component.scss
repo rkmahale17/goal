@@ -4,7 +4,6 @@
 }
 
 .goals__emptyBox {
-
   margin: auto;
   margin-top: 10%;
 }
@@ -22,6 +21,7 @@ height:300px
 
    .goal_card{
      transition: transform 1s;
+     max-width: 250px;
 
      &.hover{
        transform: translateY(-10px);

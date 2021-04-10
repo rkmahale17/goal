@@ -30,32 +30,43 @@ export class GoalController {
             let USER_GOALS = await Goal.findOne({ userId: req.params.id });
             let totalGoals = USER_GOALS.goals.length;
             let goal = USER_GOALS.goals[totalGoals - 1];
-            console.log(goal._id);
             await Phase.create({ userId: req.params.id, goalId: goal._id, phases:[]})
             res.send(USER_GOALS.goals[totalGoals-1]);
+        } else {
+            res.sendStatus(404);
        }
     }
 
     public async updateGoal(req: Request, res: Response): Promise<void> {
         // const data = await Phase.findOneAndUpdate({ userId: req.params.id, goalId: req.params.goalId }, { $push: { "phases": req.body } });
-        const goal = await Goal.replaceOne(
-            { userId: req.params.id, 'goals': { _id: req.params.goalId }},
-             req.body);
+        const goal = await Goal.findOneAndUpdate(
+            { userId: req.params.id, "goals._id": req.params.goalId }, {
+                $set: {
+                    "goals.$.title": req.body.title,
+                    "goals.$.description": req.body.description,
+                    "goals.$.startDate": req.body.startDate,
+                    "goals.$.endDate": req.body.endDate,
+                    "goals.$.reminder": req.body.reminder,
+                }
+            });
         if (goal === null) {
             res.sendStatus(404);
         } else {
-            console.log(goal);
-            const goalDetail = { productId: req.params.id, ...req.body };
+            const goalDetail = { _id: req.params.id, goal };
             res.json({ status: res.status, data: goalDetail });
         }
     }
+    // Delete Goal
 
-    // public async deleteProduct(req: Request, res: Response): Promise<void> {
-    //     const product = await Goal.findOneAndDelete({ productId: req.params.id });
-    //     if (product === null) {
-    //         res.sendStatus(404);
-    //     } else {
-    //         res.json({ response: "Product deleted Successfully" });
-    //     }
-    // }
+    public async deleteGoal(req: Request, res: Response): Promise<void> {
+        console.log('delete goal')
+        const goal = await Goal.update({ userId: req.params.id }, {
+            $pull: { goals: { _id: req.params.goalId } }
+        });
+        if (goal === null) {
+            res.sendStatus(404);
+        } else {
+            res.json({ response: "Goal deleted Successfully" });
+        }
+    }
 }

@@ -47,7 +47,7 @@ export class CreateGoalComponent {
         this.loaderService.showLoader('createGoal');
         setTimeout(() => {
             this.loaderService.hideLoader('createGoal');
-            this.inputConfig = this.apiService.getEditingGoal();
+           // this.inputConfig = this.apiService.getEditingGoal();
             this.initGoalDetails();
         }, 1000);
     }
@@ -73,18 +73,18 @@ export class CreateGoalComponent {
 
     initGoalDetails() {
 
-        const { description,
-            endDate,
-            reminder,
-            startDate,
-            title } = this.inputConfig;
-        this.form.patchValue({
-            description,
-            endDate,
-            reminder,
-            startDate,
-            title
-        });
+        // const { description,
+        //     endDate,
+        //     reminder,
+        //     startDate,
+        //     title } = this.inputConfig;
+        // this.form.patchValue({
+        //     description,
+        //     endDate,
+        //     reminder,
+        //     startDate,
+        //     title
+        // });
         // this.form.value = this.inputConfig;
     }
 
@@ -97,6 +97,8 @@ export class CreateGoalComponent {
                     this.apiService.createPhase(this.authservice.getUserId(), result._id, this.apiService.getEditingPhase())
                         .subscribe((phaseResult) => {
                             console.log('result');
+                            this.loaderService.hideLoader('createGoal');
+                            this.router.navigateByUrl('/Home');
                     });
                 }
             });
@@ -106,6 +108,7 @@ export class CreateGoalComponent {
             this.apiService.updateGoal(this.authservice.getUserId(), this.goalId, this.form.value).subscribe((result: any) => {
                 if (result) {
                     console.log(result);
+                    this.loaderService.hideLoader('createGoal');
                 }
             });
         }

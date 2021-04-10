@@ -5,6 +5,7 @@
     [goalTitle]="goalDetails.title"
     *ngIf="goalDetails && goalDetails.title"
     (edit)="isEditMode = !isEditMode"
+    (delete)="deleteGoal()"
   >
   </goal-header>
   <div class="p-4 b-l" *ngIf="!isEditMode">

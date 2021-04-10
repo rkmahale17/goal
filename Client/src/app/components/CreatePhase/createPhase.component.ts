@@ -43,12 +43,11 @@ export class CreatePhaseComponent {
         }, 1000);
     }
 
-    initPhaseDetails() { 
+    initPhaseDetails() {
         const { description,
             endDate,
             startDate,
             title } = this.inputConfig;
-        
         this.form.patchValue({
             description,
             endDate,
@@ -59,7 +58,7 @@ export class CreatePhaseComponent {
 
     submit() {
         this.apiService.setEditingPhase(this.form.value);
-        this.router.navigateByUrl('/CreateGoal')
+        this.router.navigateByUrl('/CreateGoal');
 
     }
 }
